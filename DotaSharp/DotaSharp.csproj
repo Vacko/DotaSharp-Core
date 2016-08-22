@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2DF4F3E8-419A-4F6F-86F6-8ABA3E887AEE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DotaSharp</RootNamespace>
+    <AssemblyName>DotaSharp</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bootstrap.cs" />
+    <Compile Include="DotaSharpKernel\Assemblies.cs" />
+    <Compile Include="DotaSharpKernel\Detours\DetoursMgr.cs" />
+    <Compile Include="DotaSharpKernel\Detours\DetouredFunctions\ChangeGameRulesState.cs" />
+    <Compile Include="DotaSharpKernel\Detours\DetouredFunctions\ChangeGameUIState.cs" />
+    <Compile Include="DotaSharpKernel\Detours\DetouredFunctions\PaintTraverse.cs" />
+    <Compile Include="DotaSharpKernel\Detours\DetoursSignatures.cs" />
+    <Compile Include="DotaSharpKernel\Dota.cs" />
+    <Compile Include="DotaSharpKernel\DotaException.cs" />
+    <Compile Include="DotaSharpKernel\EntitySystem\CacheObject.cs" />
+    <Compile Include="DotaSharpKernel\Misc\GameRules.cs" />
+    <Compile Include="DotaSharpKernel\Misc\PlayerOrder.cs" />
+    <Compile Include="DotaSharpKernel\Misc\ReadObj.cs" />
+    <Compile Include="DotaSharpKernel\Misc\Screen.cs" />
+    <Compile Include="DotaSharpKernel\Misc\Signatures.cs" />
+    <Compile Include="DotaSharpKernel\Models\NetVars.cs" />
+    <Compile Include="DotaSharpKernel\Offsets\AblityOffsets.cs" />
+    <Compile Include="DotaSharpKernel\Offsets\EntityOffsets.cs" />
+    <Compile Include="DotaSharpKernel\Offsets\EntityVTable.cs" />
+    <Compile Include="DotaSharpKernel\Offsets\GameRulesOffsets.cs" />
+    <Compile Include="DotaSharpKernel\Offsets\HeroOffsets.cs" />
+    <Compile Include="DotaSharpKernel\Offsets\ItemOffsets.cs" />
+    <Compile Include="DotaSharpKernel\Offsets\PlayerOffsets.cs" />
+    <Compile Include="DotaSharpKernel\Offsets\UnitOffsets.cs" />
+    <Compile Include="DotaSharp\Entities\BaseEntity.cs" />
+    <Compile Include="DotaSharp\Entities\Neutral.cs" />
+    <Compile Include="DotaSharp\Entities\Tower.cs" />
+    <Compile Include="DotaSharp\Entities\Shop.cs" />
+    <Compile Include="DotaSharp\Entities\Player.cs" />
+    <Compile Include="DotaSharp\Entities\Ability.cs" />
+    <Compile Include="DotaSharp\Entities\Building.cs" />
+    <Compile Include="DotaSharp\Entities\Courier.cs" />
+    <Compile Include="DotaSharp\Entities\Creep.cs" />
+    <Compile Include="DotaSharp\Entities\Entity.cs" />
+    <Compile Include="DotaSharpKernel\EntitySystem\CacheService.cs" />
+    <Compile Include="DotaSharp\Entities\Hero.cs" />
+    <Compile Include="DotaSharp\Enumerations\OrderIssuer.cs" />
+    <Compile Include="DotaSharp\Inventory.cs" />
+    <Compile Include="DotaSharp\Entities\Item.cs" />
+    <Compile Include="DotaSharp\Events\GameOnGameStart.cs" />
+    <Compile Include="DotaSharp\Spellbook.cs" />
+    <Compile Include="DotaSharp\Entities\Unit.cs" />
+    <Compile Include="DotaSharpKernel\Interfaces\CGameEventManager.cs" />
+    <Compile Include="DotaSharpKernel\Interfaces\CConCommand.cs" />
+    <Compile Include="DotaSharpKernel\Interfaces\CConVar.cs" />
+    <Compile Include="DotaSharpKernel\Interfaces\CCvar.cs" />
+    <Compile Include="DotaSharpKernel\Interfaces\CEngineClient.cs" />
+    <Compile Include="DotaSharpKernel\Interfaces\CSource2Client.cs" />
+    <Compile Include="DotaSharpKernel\Interfaces\CVGuiPaintSurfaceMainThread.cs" />
+    <Compile Include="DotaSharpKernel\Interfaces\CVGuiRenderSurface.cs" />
+    <Compile Include="DotaSharpKernel\Interfaces\VPanelWrapper.cs" />
+    <Compile Include="DotaSharpKernel\InterfaceVersions.cs" />
+    <Compile Include="DotaSharpKernel\InterfaceVersionsAttribute.cs" />
+    <Compile Include="DotaSharpKernel\InteropHelp.cs" />
+    <Compile Include="DotaSharp\Events\ChangeGameState.cs" />
+    <Compile Include="DotaSharp\Events\ChangeGameStateArgs.cs" />
+    <Compile Include="DotaSharp\Events\ChangeGameUIState.cs" />
+    <Compile Include="DotaSharp\Events\ChangeGameUIStateArgs.cs" />
+    <Compile Include="DotaSharp\Utils\Color.cs" />
+    <Compile Include="DotaSharp\Commands\ConCommand.cs" />
+    <Compile Include="DotaSharp\Console.cs" />
+    <Compile Include="DotaSharp\Commands\ConVar.cs" />
+    <Compile Include="DotaSharp\Drawing.cs" />
+    <Compile Include="DotaSharp\Events\DrawingOnDraw.cs" />
+    <Compile Include="DotaSharpKernel\EntitySystem\EntitySystem.cs" />
+    <Compile Include="DotaSharp\Enumerations\AttackCapability.cs" />
+    <Compile Include="DotaSharp\Enumerations\ClassID.cs" />
+    <Compile Include="DotaSharp\Enumerations\ConVarFlags.cs" />
+    <Compile Include="DotaSharp\Enumerations\EFontFlags.cs" />
+    <Compile Include="DotaSharp\Enumerations\GameState.cs" />
+    <Compile Include="DotaSharp\Enumerations\AbilitySlot.cs" />
+    <Compile Include="DotaSharp\Enumerations\ItemSlot.cs" />
+    <Compile Include="DotaSharp\Enumerations\LifeState.cs" />
+    <Compile Include="DotaSharp\Enumerations\Order.cs" />
+    <Compile Include="DotaSharp\Enumerations\TargetTeamType.cs" />
+    <Compile Include="DotaSharp\Enumerations\Team.cs" />
+    <Compile Include="DotaSharp\Enumerations\UIState.cs" />
+    <Compile Include="DotaSharp\Enumerations\UnitState.cs" />
+    <Compile Include="DotaSharp\Game.cs" />
+    <Compile Include="DotaSharp\ObjectMgr.cs" />
+    <Compile Include="DotaSharp\Events\OnInGameUpdate.cs" />
+    <Compile Include="DotaSharp\Utils\Vector2.cs" />
+    <Compile Include="DotaSharp\Utils\Vector3.cs" />
+    <Compile Include="Hooking\DetourManager.cs" />
+    <Compile Include="Hooking\HookMemory.cs" />
+    <Compile Include="Hooking\Manager.cs" />
+    <Compile Include="Hooking\PatchManager.cs" />
+    <Compile Include="Memory\MemoryManager.cs" />
+    <Compile Include="Memory\MemoryTemp.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\ApplicationInfo.cs" />
+    <Compile Include="Utils\Logging.cs" />
+    <Compile Include="Memory\SigScan.cs" />
+    <Compile Include="Utils\VirtualMouse.cs" />
+    <Compile Include="Memory\WinImports.cs" />
+    <Compile Include="Utils\Xml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Documentation\Addresses\Client.txt" />
+    <Content Include="Documentation\Addresses\Engine.txt" />
+    <Content Include="Documentation\Addresses\Vguirendersurface.txt" />
+    <Content Include="Documentation\Addresses\Vstdlib.txt" />
+    <Content Include="Documentation\Addresses\WorldRenderer.txt" />
+    <Content Include="Documentation\Commands.txt" />
+    <Content Include="Documentation\Entities\C_BaseEntity.txt" />
+    <Content Include="Documentation\Entities\C_BasePlayer.txt" />
+    <Content Include="Documentation\Entities\C_DOTAGamerules.txt" />
+    <Content Include="Documentation\Entities\C_DOTA_BaseNPC_Creep_Lane.txt" />
+    <Content Include="Documentation\Entities\C_DOTA_BaseNPC_Hero.txt" />
+    <Content Include="Documentation\Entities\C_DOTA_Item.txt" />
+    <Content Include="Documentation\Entities\C_DOTAPlayer.txt" />
+    <Content Include="Documentation\Entities\C_DOTA_BaseNPC.txt" />
+    <Content Include="Documentation\Entities\C_DOTA_Unit_Courier.txt" />
+    <Content Include="Documentation\Entities\UnityType.txt" />
+    <Content Include="Documentation\Entities\_Inheritance.txt" />
+    <Content Include="Documentation\Functions\Font.txt" />
+    <Content Include="Documentation\Functions\PrepareUnitOrders.txt" />
+    <Content Include="Documentation\Functions\PrepareUnitOrdersHooked.txt" />
+    <Content Include="Documentation\GameConsole\GameRulesState.txt" />
+    <Content Include="Documentation\GameConsole\GameUIState.txt" />
+    <Content Include="Documentation\Interfaces\CAppSystemDict.txt" />
+    <Content Include="Documentation\Interfaces\CBaseGameSystemFactory.txt" />
+    <Content Include="Documentation\Interfaces\CDOTAEmoticonData.txt" />
+    <Content Include="Documentation\Interfaces\CDOTAGCClientSystem.txt" />
+    <Content Include="Documentation\Interfaces\CDOTA_DB_Play.txt" />
+    <Content Include="Documentation\Interfaces\CDOTA_DB_PopupManager.txt" />
+    <Content Include="Documentation\Interfaces\CDOTA_DB_Popup_AcceptMatch.txt" />
+    <Content Include="Documentation\Interfaces\CDOTA_Hud_Main.txt" />
+    <Content Include="Documentation\Interfaces\CEngineVGui.txt" />
+    <Content Include="Documentation\Interfaces\CEntitySystem.txt" />
+    <Content Include="Documentation\Interfaces\CEventSystem.txt" />
+    <Content Include="Documentation\Interfaces\CGameClientExports.txt" />
+    <Content Include="Documentation\Interfaces\CGameEntitySytem.txt" />
+    <Content Include="Documentation\Interfaces\CGameEvent.txt" />
+    <Content Include="Documentation\Interfaces\CGameEventManager.txt" />
+    <Content Include="Documentation\Interfaces\CGameRules.txt" />
+    <Content Include="Documentation\Interfaces\CGameRulesGameSystem.txt" />
+    <Content Include="Documentation\Interfaces\CGameUI.txt" />
+    <Content Include="Documentation\Interfaces\CGameUIFuncs.txt" />
+    <Content Include="Documentation\Interfaces\CGameUIService.txt" />
+    <Content Include="Documentation\Interfaces\CMouthInfo.txt" />
+    <Content Include="Documentation\Interfaces\CNetChan.txt" />
+    <Content Include="Documentation\Interfaces\CNetworkTransmitComponent.txt" />
+    <Content Include="Documentation\Interfaces\CSource2EntitySystem.txt" />
+    <Content Include="Documentation\Interfaces\CTier1AppSystem.txt" />
+    <Content Include="Documentation\Interfaces\CTier2Application.txt" />
+    <Content Include="Documentation\Interfaces\CVGui.txt" />
+    <Content Include="Documentation\Interfaces\IGameSystem.txt" />
+    <Content Include="Documentation\Interfaces\Used\CConCommand.txt" />
+    <Content Include="Documentation\Interfaces\Used\CConVar.txt" />
+    <Content Include="Documentation\Interfaces\Used\CCvar.txt" />
+    <Content Include="Documentation\Interfaces\Used\CEngineClient.txt" />
+    <Content Include="Documentation\Interfaces\Used\CEngineServer.txt" />
+    <Content Include="Documentation\Interfaces\Used\CSource2Client.txt" />
+    <Content Include="Documentation\Interfaces\Used\CVGuiPaintSurfaceMainThread.txt" />
+    <Content Include="Documentation\Interfaces\Used\CVGuiRenderSurface.txt" />
+    <Content Include="Documentation\Interfaces\Used\VPanelWrapper.txt" />
+    <Content Include="Documentation\Other\dota2-cheatengine.txt" />
+    <Content Include="Documentation\Other\DUMP_INTERFACES.txt" />
+    <Content Include="Documentation\Other\DUMP_NETVARS.txt" />
+    <Content Include="Documentation\Other\Entities.txt" />
+    <Content Include="Documentation\Other\Entities2.txt" />
+    <Content Include="Documentation\Other\EVENTS.txt" />
+    <Content Include="Documentation\Other\GAMERULES.txt" />
+    <Content Include="Documentation\Other\GetHighestEntityIndex.txt" />
+    <Content Include="Documentation\Other\Other.txt" />
+    <Content Include="Documentation\Other\playerbase_dota2.txt" />
+    <Content Include="Documentation\Signatures\GetEntityByIndex.txt" />
+    <Content Include="Documentation\Signatures\WorldToScreen.txt" />
+    <Content Include="Documentation\Signatures\GetLocalPlayer.txt" />
+    <Content Include="Documentation\Signatures\GetBaseEntityFromHandle.txt" />
+    <Content Include="Documentation\Signatures\NextEnt.txt" />
+    <Content Include="Documentation\Signatures\ChangeGameUIState.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

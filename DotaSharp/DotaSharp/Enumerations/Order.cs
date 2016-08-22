@@ -1,0 +1,36 @@
+﻿namespace DotaSharp
+{
+    public enum Order
+    {
+        None,
+        MoveLocation,
+        MoveTarget,
+        AttackLocation,
+        AttackTarget,
+        AbilityLocation,
+        AbilityTarget,
+        AbilityTargetTree,
+        Ability,
+        ToggleAbility,
+        Hold,
+        UpgradeAbility,
+        DropItem,
+        TransferItem,
+        PickItem,
+        ConsumeRune,
+        BuyItem,
+        SellItem,
+        DisassembleItem,
+        MoveItem,
+        ToggleAutoCast,
+        Stop,
+        Taunt,
+        Buyback,
+        GlyphOfFortification,
+        DropFromStash,
+        AbilityTargetRune,
+        Announce,
+        MoveToDirection,
+        Patrol
+    }
+}
